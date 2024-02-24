@@ -1,4 +1,4 @@
-var arr1 = arrayOf(arrayOf(2), arrayOf(4, 1), arrayOf(1, 2, 7))
+var arr1 = arrayOf(arrayOf(100), arrayOf(4, 100), arrayOf(1, 2, 100), arrayOf(1, 2, 100, 10), arrayOf(1, 2, 1, 100, 1))
 
 var cache1:MutableMap<DPElement, Int> = mutableMapOf()
 
@@ -6,6 +6,8 @@ data class DPElement(val row: Int, val col: Int, val sum: Int)
 
 fun main(args: Array<String>) {
     arr1.forEach { it.forEach { print(it); print(" ") }; println() }
+    println("*".repeat(20))
+    println()
 //    val dpElement1 = DPElement(2, 3, 5)
 //    val dpElement2 = DPElement(2, 3, 7)
 //
