@@ -1,22 +1,25 @@
 fun main(args:Array<String>) {
     val inputArray = arrayOf(300, 10, 20, 100, 20)
 
+    println("Input Array: " + inputArray.contentToString())
+
     var output = findLongestIncreasingSubsequence(inputArray)
-    println(output.contentToString())
+    println("LIS Array: " + output.contentToString())
 
     printLongestSequence(inputArray, output)
 }
 
 fun printLongestSequence(inputArray: Array<Int>, output: Array<Int>) {
     // Find max index from output array
-    val maxIndex = output.indexOf(output.maxOrNull())
-    var lis = output[maxIndex]
+    val lastIndex = output.indexOf(output.maxOrNull())
+    val maxIndex = lastIndex
+    var lis = output[lastIndex]
     val sequence = mutableListOf<Int>()
-    sequence.add(inputArray[maxIndex])
+    sequence.add(inputArray[lastIndex])
     lis -= 1
 
     for (i in maxIndex - 1 downTo 0) {
-        if ((output[i] == lis) && (inputArray[i] < inputArray[maxIndex])){
+        if ((output[i] == lis) && (inputArray[i] < inputArray[lastIndex])){
             sequence.add(inputArray[i])
             lis -= 1
         }
